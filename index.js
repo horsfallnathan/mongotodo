@@ -16,6 +16,11 @@ MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, fu
     }
 });
 
+// Get all todos
+app.get('/', (req, res) => {
+    res.status(200).json({ message: "ok" });
+});
+
 // Create a new todo
 app.post('/todos', (req, res) => {
     const newTodo = { task: req.body.task, completed: false };

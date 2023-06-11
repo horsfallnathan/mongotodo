@@ -1,0 +1,4 @@
+*.pem
+.DS_store
+node_modules
+pnpm*
