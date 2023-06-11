@@ -6,12 +6,14 @@ app.use(express.json()); // for parsing application/json
 const uri = process.env.MONGODB_URI;
 let db;
 
+console.log(uri, "Mongo connection uri")
 MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
     if (err) {
         console.log('Error occurred while connecting to MongoDB Atlas...\n', err);
+    } else {
+        db = client.db();
+        console.log('Connected...');
     }
-    console.log('Connected...');
-    db = client.db();
 });
 
 // Create a new todo
